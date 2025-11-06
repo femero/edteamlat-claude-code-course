@@ -1,0 +1,7 @@
+{
+	"name": "todo-app-cc-intro",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "npx http-server public -p 5173 -c-1"
+	}
+}
