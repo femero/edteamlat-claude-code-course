@@ -1,0 +1,83 @@
+null - No description
+{
+  "session_id": "30d3b3eb-15dd-4319-8d02-d0ee0c3cc6bb",
+  "transcript_path": "/Users/alexyslozada/.claude/projects/-Users-alexyslozada-github-com-alexyslozada-claude-code-course-01-todo-list/30d3b3eb-15dd-4319-8d02-d0ee0c3cc6bb.jsonl",
+  "cwd": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list/public/app.js",
+    "old_string": "function saludar(nombre) {\n\talert(`Hola ${nombre}`);\n}\n\nfunction render() {",
+    "new_string": "function suma(a, b) {\n\treturn a + b;\n}\n\nfunction render() {"
+  },
+  "tool_response": {
+    "filePath": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list/public/app.js",
+    "oldString": "function saludar(nombre) {\n\talert(`Hola ${nombre}`);\n}\n\nfunction render() {",
+    "newString": "function suma(a, b) {\n\treturn a + b;\n}\n\nfunction render() {",
+    "originalFile": "const form = document.getElementById('form');\nconst input = document.getElementById('input');\nconst list = document.getElementById('list');\n\nlet todos = [];\n\nform.addEventListener('submit', (e) => {\n\te.preventDefault();\n\tconst text = input.value.trim();\n\tif (!text) return;\n\ttodos.push({ id: crypto.randomUUID(), text, done: false });\n\tinput.value = '';\n\trender();\n});\n\nfunction toggle(id) {\n\ttodos = todos.map(t => t.id === id ? { ...t, done: !t.done } : t);\n\trender();\n}\n\nfunction removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction saludar(nombre) {\n\talert(`Hola ${nombre}`);\n}\n\nfunction render() {\n\tlist.innerHTML = '';\n\ttodos.forEach(t => {\n\t\tconst li = document.createElement('li');\n\t\tif (t.done) li.classList.add('completed');\n\n\t\tconst chk = document.createElement('input');\n\t\tchk.type = 'checkbox';\n\t\tchk.checked = t.done;\n\t\tchk.addEventListener('change', () => toggle(t.id));\n\n\t\tconst span = document.createElement('span');\n\t\tspan.textContent = t.text;\n\n\t\tconst del = document.createElement('button');\n\t\tdel.textContent = 'Eliminar';\n\t\tdel.addEventListener('click', () => removeItem(t.id));\n\n\t\tli.append(chk, span, del);\n\t\tlist.append(li);\n\t});\n}\n\nrender();\n",
+    "structuredPatch": [
+      {
+        "oldStart": 23,
+        "oldLines": 8,
+        "newStart": 23,
+        "newLines": 8,
+        "lines": [
+          "   render();",
+          " }",
+          " ",
+          "-function saludar(nombre) {",
+          "-  alert(`Hola ${nombre}`);",
+          "+function suma(a, b) {",
+          "+  return a + b;",
+          " }",
+          " ",
+          " function render() {"
+        ]
+      }
+    ],
+    "userModified": false,
+    "replaceAll": false
+  }
+}
+{
+  "session_id": "a2c45eba-5b99-4640-a84e-fb052bdde4d3",
+  "transcript_path": "/Users/alexyslozada/.claude/projects/-Users-alexyslozada-github-com-alexyslozada-claude-code-course-01-todo-list/a2c45eba-5b99-4640-a84e-fb052bdde4d3.jsonl",
+  "cwd": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list/public/app.js",
+    "old_string": "function removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction suma(a, b) {\n\treturn a + b;\n}\n\nfunction render() {",
+    "new_string": "function removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction render() {"
+  },
+  "tool_response": {
+    "filePath": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list/public/app.js",
+    "oldString": "function removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction suma(a, b) {\n\treturn a + b;\n}\n\nfunction render() {",
+    "newString": "function removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction render() {",
+    "originalFile": "const form = document.getElementById('form');\nconst input = document.getElementById('input');\nconst list = document.getElementById('list');\n\nlet todos = [];\n\nform.addEventListener('submit', (e) => {\n\te.preventDefault();\n\tconst text = input.value.trim();\n\tif (!text) return;\n\ttodos.push({ id: crypto.randomUUID(), text, done: false });\n\tinput.value = '';\n\trender();\n});\n\nfunction toggle(id) {\n\ttodos = todos.map(t => t.id === id ? { ...t, done: !t.done } : t);\n\trender();\n}\n\nfunction removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction suma(a, b) {\n\treturn a + b;\n}\n\nfunction render() {\n\tlist.innerHTML = '';\n\ttodos.forEach(t => {\n\t\tconst li = document.createElement('li');\n\t\tif (t.done) li.classList.add('completed');\n\n\t\tconst chk = document.createElement('input');\n\t\tchk.type = 'checkbox';\n\t\tchk.checked = t.done;\n\t\tchk.addEventListener('change', () => toggle(t.id));\n\n\t\tconst span = document.createElement('span');\n\t\tspan.textContent = t.text;\n\n\t\tconst del = document.createElement('button');\n\t\tdel.textContent = 'Eliminar';\n\t\tdel.addEventListener('click', () => removeItem(t.id));\n\n\t\tli.append(chk, span, del);\n\t\tlist.append(li);\n\t});\n}\n\nrender();\n",
+    "structuredPatch": [
+      {
+        "oldStart": 23,
+        "oldLines": 10,
+        "newStart": 23,
+        "newLines": 6,
+        "lines": [
+          "   render();",
+          " }",
+          " ",
+          "-function suma(a, b) {",
+          "-  return a + b;",
+          "-}",
+          "-",
+          " function render() {",
+          "   list.innerHTML = '';",
+          "   todos.forEach(t => {"
+        ]
+      }
+    ],
+    "userModified": false,
+    "replaceAll": false
+  }
+}
