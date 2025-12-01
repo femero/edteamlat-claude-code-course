@@ -1,0 +1,79 @@
+========================================
+Timestamp: 2025-11-26 17:24:26
+Archivo: /Users/alexyslozada/github.com/alexyslozada/claude-code-course/02-todo-list-go/main.go
+Tipo: B 🟡
+Errores encontrados: 1
+
+Detalles de los errores:
+main.go:196:9: too many return values
+	have (number)
+	want () (typecheck)
+	return 1
+	       ^
+1 issues:
+* typecheck: 1
+
+========================================
+
+========================================
+Timestamp: 2025-11-26 17:27:37
+Archivo: /Users/alexyslozada/github.com/alexyslozada/claude-code-course/02-todo-list-go/main.go
+Tipo: B 🟡
+Errores encontrados: 3
+
+Detalles de los errores:
+main.go:284:18: Error return value of `todoList.Save` is not checked (errcheck)
+				todoList.Save()
+				             ^
+main.go:307:18: Error return value of `todoList.Save` is not checked (errcheck)
+				todoList.Save()
+				             ^
+main.go:322:18: Error return value of `todoList.Save` is not checked (errcheck)
+				todoList.Save()
+				             ^
+3 issues:
+* errcheck: 3
+
+========================================
+
+========================================
+Timestamp: 2025-11-26 17:29:11
+Archivo: /Users/alexyslozada/github.com/alexyslozada/claude-code-course/02-todo-list-go/main.go
+Tipo: B 🟡
+Errores encontrados: 2
+
+Detalles de los errores:
+main.go:307:18: Error return value of `todoList.Save` is not checked (errcheck)
+				todoList.Save()
+				             ^
+main.go:322:18: Error return value of `todoList.Save` is not checked (errcheck)
+				todoList.Save()
+				             ^
+2 issues:
+* errcheck: 2
+
+========================================
+
+========================================
+Timestamp: 2025-11-26 17:29:16
+Archivo: /Users/alexyslozada/github.com/alexyslozada/claude-code-course/02-todo-list-go/main.go
+Tipo: B 🟡
+Errores encontrados: 1
+
+Detalles de los errores:
+main.go:322:18: Error return value of `todoList.Save` is not checked (errcheck)
+				todoList.Save()
+				             ^
+1 issues:
+* errcheck: 1
+
+========================================
+
+========================================
+Timestamp: 2025-11-26 17:29:20
+Archivo: /Users/alexyslozada/github.com/alexyslozada/claude-code-course/02-todo-list-go/main.go
+Tipo: A 🟢
+Errores encontrados: 0
+
+========================================
+

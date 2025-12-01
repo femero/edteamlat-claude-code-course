@@ -1,0 +1,24 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "description": "agregar cosas",
+      "completed": true,
+      "created_at": "2025-11-12T20:36:42.626527-05:00",
+      "completed_at": "2025-11-25T15:57:24.773267-05:00"
+    },
+    {
+      "id": 2,
+      "description": "estudiar go",
+      "completed": false,
+      "created_at": "2025-11-25T15:56:53.93275-05:00"
+    },
+    {
+      "id": 3,
+      "description": "estudiar java",
+      "completed": false,
+      "created_at": "2025-11-26T16:54:40.006791-05:00"
+    }
+  ],
+  "next_id": 4
+}

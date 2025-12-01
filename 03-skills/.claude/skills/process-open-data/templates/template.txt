@@ -1,0 +1,5 @@
+# Reporte de los 5 inmuebles más costosos
+
+| id | Inmueble | Ciudad | Valor       |
+|----|----------|--------|-------------|
+| 1  | CASA     | BOGOTA | 195.000.000 |

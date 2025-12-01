@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades de Élite | Selección Exclusiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C5A572;
+            --dark-gold: #9B7E4F;
+            --cream: #F8F6F1;
+            --charcoal: #1A1A1A;
+            --soft-black: #2C2C2C;
+            --marble: #E8E5DD;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--marble) 100%);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(197, 165, 114, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(197, 165, 114, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        .decorative-line {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto 30px;
+            opacity: 0;
+            animation: expandLine 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes expandLine {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 100px;
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dark-gold);
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--soft-black);
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        .properties-grid {
+            display: grid;
+            gap: 50px;
+            margin: 60px 0 100px;
+        }
+
+        .property-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .property-card:nth-child(1) { animation-delay: 0.1s; }
+        .property-card:nth-child(2) { animation-delay: 0.2s; }
+        .property-card:nth-child(3) { animation-delay: 0.3s; }
+        .property-card:nth-child(4) { animation-delay: 0.4s; }
+        .property-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(197, 165, 114, 0.15);
+            border-color: rgba(197, 165, 114, 0.4);
+        }
+
+        .property-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .property-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .property-header {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 30px;
+            align-items: center;
+            padding: 40px 50px;
+            border-bottom: 1px solid rgba(197, 165, 114, 0.15);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(248, 246, 241, 0.3) 100%);
+        }
+
+        .rank-badge {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark-gold);
+            background: radial-gradient(circle, rgba(197, 165, 114, 0.1) 0%, transparent 70%);
+            position: relative;
+        }
+
+        .rank-badge::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            opacity: 0.3;
+        }
+
+        .property-title {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .property-type {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            letter-spacing: 0.02em;
+        }
+
+        .property-code {
+            font-size: 0.85rem;
+            color: var(--dark-gold);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .property-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--dark-gold);
+            text-align: right;
+            letter-spacing: 0.02em;
+        }
+
+        .property-price-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--soft-black);
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .property-body {
+            padding: 40px 50px;
+            display: grid;
+            gap: 25px;
+        }
+
+        .property-location {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(197, 165, 114, 0.1);
+        }
+
+        .location-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .location-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--dark-gold);
+            font-weight: 400;
+        }
+
+        .location-value {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            font-weight: 300;
+        }
+
+        .property-address {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .address-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--dark-gold);
+            font-weight: 400;
+        }
+
+        .address-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--soft-black);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .property-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 15px;
+            background: rgba(197, 165, 114, 0.04);
+            border-left: 2px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(197, 165, 114, 0.08);
+            transform: translateX(5px);
+        }
+
+        .detail-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--dark-gold);
+            font-weight: 400;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: var(--charcoal);
+            font-weight: 300;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 80px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 30px;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--soft-black);
+            opacity: 0.5;
+            font-weight: 300;
+        }
+
+        .footer-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--dark-gold);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .property-header {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+                padding: 30px 35px;
+            }
+
+            .property-price {
+                grid-column: 1 / -1;
+                text-align: left;
+                margin-top: 15px;
+                padding-top: 15px;
+                border-top: 1px solid rgba(197, 165, 114, 0.15);
+            }
+
+            .rank-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .property-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.75rem;
+            }
+
+            .property-location {
+                grid-template-columns: 1fr;
+            }
+
+            .property-body {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <div class="container">
+        <header>
+            <div class="decorative-line"></div>
+            <p class="subtitle">Selección Exclusiva</p>
+            <h1>Propiedades de Élite</h1>
+            <p class="tagline">Las cinco inversiones más distinguidas</p>
+        </header>
+
+        <div class="properties-grid">
+            <!-- Property 1 -->
+            <article class="property-card">
+                <div class="property-header">
+                    <div class="rank-badge">1</div>
+                    <div class="property-title">
+                        <h2 class="property-type">Lote Mixto</h2>
+                        <p class="property-code">Código 11409</p>
+                    </div>
+                    <div class="property-price">
+                        <span class="property-price-label">Precio</span>
+                        $452,337,898
+                    </div>
+                </div>
+                <div class="property-body">
+                    <div class="property-location">
+                        <div class="location-item">
+                            <span class="location-label">Ciudad</span>
+                            <span class="location-value">Buga</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Departamento</span>
+                            <span class="location-value">Valle del Cauca</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Barrio</span>
+                            <span class="location-value">Vereda Chambimbal</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Estrato</span>
+                            <span class="location-value">Rural</span>
+                        </div>
+                    </div>
+                    <div class="property-address">
+                        <span class="address-label">Dirección</span>
+                        <p class="address-value">LT A1-A24 B1-B79 C1-C51 D1-D9 STA ROSA LT1-46 LT 1-7 1-10 1-11 KR 8 -37</p>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Área Terreno</span>
+                            <span class="detail-value">321,719,700 m²</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Área Construida</span>
+                            <span class="detail-value">2,272,400 m²</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Lote Mixto</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Property 2 -->
+            <article class="property-card">
+                <div class="property-header">
+                    <div class="rank-badge">2</div>
+                    <div class="property-title">
+                        <h2 class="property-type">Lote</h2>
+                        <p class="property-code">Código 17510</p>
+                    </div>
+                    <div class="property-price">
+                        <span class="property-price-label">Precio</span>
+                        $328,393,170
+                    </div>
+                </div>
+                <div class="property-body">
+                    <div class="property-location">
+                        <div class="location-item">
+                            <span class="location-label">Ciudad</span>
+                            <span class="location-value">Bogotá</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Departamento</span>
+                            <span class="location-value">Cundinamarca</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Estrato</span>
+                            <span class="location-value">Dos</span>
+                        </div>
+                    </div>
+                    <div class="property-address">
+                        <span class="address-label">Dirección</span>
+                        <p class="address-value">DG 48J SUR N° 1A 50</p>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Área Terreno</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Área Construida</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Lote</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Property 3 -->
+            <article class="property-card">
+                <div class="property-header">
+                    <div class="rank-badge">3</div>
+                    <div class="property-title">
+                        <h2 class="property-type">Lote Comercial</h2>
+                        <p class="property-code">Código 17180</p>
+                    </div>
+                    <div class="property-price">
+                        <span class="property-price-label">Precio</span>
+                        $295,808,119
+                    </div>
+                </div>
+                <div class="property-body">
+                    <div class="property-location">
+                        <div class="location-item">
+                            <span class="location-label">Ciudad</span>
+                            <span class="location-value">Bogotá</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Departamento</span>
+                            <span class="location-value">Cundinamarca</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Estrato</span>
+                            <span class="location-value">Tres</span>
+                        </div>
+                    </div>
+                    <div class="property-address">
+                        <span class="address-label">Dirección</span>
+                        <p class="address-value">AV CR 7 NO. 166 - 51 LT B</p>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Área Terreno</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Área Construida</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Lote Comercial</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Property 4 -->
+            <article class="property-card">
+                <div class="property-header">
+                    <div class="rank-badge">4</div>
+                    <div class="property-title">
+                        <h2 class="property-type">Bodega</h2>
+                        <p class="property-code">Código 17745</p>
+                    </div>
+                    <div class="property-price">
+                        <span class="property-price-label">Precio</span>
+                        $274,462,556
+                    </div>
+                </div>
+                <div class="property-body">
+                    <div class="property-location">
+                        <div class="location-item">
+                            <span class="location-label">Ciudad</span>
+                            <span class="location-value">Bogotá</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Departamento</span>
+                            <span class="location-value">Cundinamarca</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Estrato</span>
+                            <span class="location-value">Industrial</span>
+                        </div>
+                    </div>
+                    <div class="property-address">
+                        <span class="address-label">Dirección</span>
+                        <p class="address-value">CALLE 22D NO. 120-19 - FONTIBÓN</p>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Área Terreno</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Área Construida</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Bodega</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Property 5 -->
+            <article class="property-card">
+                <div class="property-header">
+                    <div class="rank-badge">5</div>
+                    <div class="property-title">
+                        <h2 class="property-type">Edificio</h2>
+                        <p class="property-code">Código 19292</p>
+                    </div>
+                    <div class="property-price">
+                        <span class="property-price-label">Precio</span>
+                        $164,605,915
+                    </div>
+                </div>
+                <div class="property-body">
+                    <div class="property-location">
+                        <div class="location-item">
+                            <span class="location-label">Ciudad</span>
+                            <span class="location-value">Bogotá</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Departamento</span>
+                            <span class="location-value">Cundinamarca</span>
+                        </div>
+                        <div class="location-item">
+                            <span class="location-label">Estrato</span>
+                            <span class="location-value">Comercial</span>
+                        </div>
+                    </div>
+                    <div class="property-address">
+                        <span class="address-label">Dirección</span>
+                        <p class="address-value">CL 72 No. 12 - 77</p>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Área Terreno</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Área Construida</span>
+                            <span class="detail-value">No especificado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tipo</span>
+                            <span class="detail-value">Edificio</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <div class="footer-divider"></div>
+            <p class="footer-text">Reporte Exclusivo</p>
+            <p class="footer-date">Noviembre 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

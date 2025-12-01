@@ -1,0 +1,13 @@
+{
+	"name": "test-marketplace",
+	"owner": {
+		"name": "Desarrollo"
+	},
+	"plugins": [
+		{
+		  "name": "my-first-plugin",
+		  "source": "./my-first-plugin",
+		  "description": "My first plugin test"
+		}
+	]
+}

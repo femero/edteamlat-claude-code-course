@@ -1,0 +1,41 @@
+{
+  "session_id": "0c789843-556a-4028-acca-94db5cecd57d",
+  "transcript_path": "/Users/alexyslozada/.claude/projects/-Users-alexyslozada-github-com-alexyslozada-claude-code-course-01-todo-list/0c789843-556a-4028-acca-94db5cecd57d.jsonl",
+  "cwd": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list",
+  "permission_mode": "default",
+  "hook_event_name": "PostToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list/public/app.js",
+    "old_string": "function sum(a, b) {\n\treturn a + b;\n}",
+    "new_string": "function sum(a, b) {\n\treturn a + b;\n}\n\nfunction subtract(a, b) {\n\treturn a - b;\n}"
+  },
+  "tool_response": {
+    "filePath": "/Users/alexyslozada/github.com/alexyslozada/claude-code-course/01-todo-list/public/app.js",
+    "oldString": "function sum(a, b) {\n\treturn a + b;\n}",
+    "newString": "function sum(a, b) {\n\treturn a + b;\n}\n\nfunction subtract(a, b) {\n\treturn a - b;\n}",
+    "originalFile": "const form = document.getElementById('form');\nconst input = document.getElementById('input');\nconst list = document.getElementById('list');\n\nlet todos = [];\n\nform.addEventListener('submit', (e) => {\n\te.preventDefault();\n\tconst text = input.value.trim();\n\tif (!text) return;\n\ttodos.push({ id: crypto.randomUUID(), text, done: false });\n\tinput.value = '';\n\trender();\n});\n\nfunction toggle(id) {\n\ttodos = todos.map(t => t.id === id ? { ...t, done: !t.done } : t);\n\trender();\n}\n\nfunction removeItem(id) {\n\ttodos = todos.filter(t => t.id !== id);\n\trender();\n}\n\nfunction factorial(n) {\n\tif (n < 0) return undefined;\n\tif (n === 0) return 1;\n\n\tlet result = 0;\n\tfor (let i = 1; i <= n; i++) {\n\t\tlet producto = 1;\n\t\tfor (let j = 1; j <= i; j++) {\n\t\t\tlet suma = 0;\n\t\t\tfor (let k = 0; k < j; k++) {\n\t\t\t\tsuma = suma + 1;\n\t\t\t}\n\t\t\tproducto = producto * suma;\n\t\t}\n\t\tresult = producto;\n\t}\n\treturn result;\n}\n\nfunction sum(a, b) {\n\treturn a + b;\n}\n\nfunction render() {\n\tlist.innerHTML = '';\n\ttodos.forEach(t => {\n\t\tconst li = document.createElement('li');\n\t\tif (t.done) li.classList.add('completed');\n\n\t\tconst chk = document.createElement('input');\n\t\tchk.type = 'checkbox';\n\t\tchk.checked = t.done;\n\t\tchk.addEventListener('change', () => toggle(t.id));\n\n\t\tconst span = document.createElement('span');\n\t\tspan.textContent = t.text;\n\n\t\tconst del = document.createElement('button');\n\t\tdel.textContent = 'Eliminar';\n\t\tdel.addEventListener('click', () => removeItem(t.id));\n\n\t\tli.append(chk, span, del);\n\t\tlist.append(li);\n\t});\n}\n\nrender();\n",
+    "structuredPatch": [
+      {
+        "oldStart": 46,
+        "oldLines": 6,
+        "newStart": 46,
+        "newLines": 10,
+        "lines": [
+          "   return a + b;",
+          " }",
+          " ",
+          "+function subtract(a, b) {",
+          "+  return a - b;",
+          "+}",
+          "+",
+          " function render() {",
+          "   list.innerHTML = '';",
+          "   todos.forEach(t => {"
+        ]
+      }
+    ],
+    "userModified": false,
+    "replaceAll": false
+  }
+}
